@@ -1,5 +1,4 @@
 import {Component, signal} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import {delay, of} from "rxjs";
 
 @Component({
@@ -13,6 +12,7 @@ export class AppComponent {
 
   save() {
     of(undefined)
+      // if we don't include the delay here, all tests pass
       .pipe(delay(10))
       .subscribe(() => this.showSavedText.set(true));
   }
